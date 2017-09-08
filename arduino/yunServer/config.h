@@ -6,3 +6,7 @@ const String sshPass = "arduino";
 const int sshPort = 22;
 const int streamPort = 8080;
 const String spacebrewHost = "sandbox.spacebrew.cc";
+const String sbSameeName = "samee";
+const String sbWebClientName = "samee-user";
+const String sbMotorSendFeed = "command";
+const String sbMotorReceiveFeed = "command-receive";

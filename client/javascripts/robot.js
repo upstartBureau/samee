@@ -1,6 +1,8 @@
 
 function Robot() {
 
+  console.log(CONFIG);
+
   // PRIVATE VARIABLES
   var new_direction = [0, 0];
   var last_direction = [0, 0];
@@ -9,14 +11,16 @@ function Robot() {
   var sb = {};
   var string_subs = [];
 
-  var ws_server = "sandbox.spacebrew.cc";                  // ip of the websockets server
+  var ws_server = CONFIG.spacebrewHost;               // ip of the websockets server
 
   // command feed configuration
-  var client_name = "samee";                        // name of the remote listener
+  var client_name = CONFIG.sbSameeName;               // name of the remote listener
+
   //var remote_address = "machinemensch.dynu.com";    // remote listener's ip (same as this IP if running samee locally)
   var remote_address = "162.211.146.102";
-  var pub_name = "command";                         // name of the publication feed
-  var sub_name = "command-receive";                 // name of the remote listener's subscription feed
+
+  var pub_name = CONFIG.sbMotorSendFeed;              // name of the publication feed
+  var sub_name = CONFIG.sbMotorReceiveFeed;           // name of the remote listener's subscription feed
 
   // INITIALIZATION COMMANDS
   setupSpacebrew();

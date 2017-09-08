@@ -37,6 +37,8 @@ function execSSH(cmd) {
 }
 
 function cameraOn() {
+  console.log("starting camera");
+
   let cmd = `mjpg_streamer -i 'input_uvc.so -d /dev/video0 -r 360x600 -f 25' ` +
             `-o 'output_http.so -p ${STREAM_PORT} -w /www/webcam' &`;
 
@@ -50,6 +52,8 @@ function cameraOn() {
 }
 
 function cameraOff() {
+  console.log("stopping camera");
+
   let cmd = 'killall webcamDaemon mjpg_streamer';
 
   return execSSH(cmd)

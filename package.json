@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev-server": "nodemon server --watch server",
+    "dev-client": "browser-sync start --proxy http://localhost:8005 --files client",
+    "deploy-local": "open http://localhost:8005 && node server"
   },
   "author": "",
   "license": "ISC",

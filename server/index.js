@@ -31,10 +31,10 @@ function server(request, response) {
   let urlInfo = url.parse(request.url, true);
 
   switch(urlInfo.pathname) {
-    case '/on':
+    case '/start_camera':
       handleRequest(camera.on(), response);
       break;
-    case '/off':
+    case '/stop_camera':
       handleRequest(camera.off(), response);
       break;
     case '/say':

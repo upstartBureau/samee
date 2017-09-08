@@ -12,6 +12,7 @@
     <script src="./javascripts/jquery-1.12.4.min.js"></script>
     <script src="./javascripts/sb-1.3.5.js"></script>
     <script src="./javascripts/sb-admin-0.1.4.js"></script>
+    <script src="./javascripts/config.js"></script>
     <script src="./javascripts/robot.js"></script>
     <script src="./javascripts/gamepad.js"></script>
     <script src="./javascripts/connect_message.js"></script>
@@ -68,9 +69,9 @@
     <script>
 
       // GLOBAL VARS
-      var ip_address = "arduino.local";
+      var ip_address = CONFIG.sshHost;
       var control_port = "80";
-      var stream_port = "8080";
+      var stream_port = CONFIG.streamPort;
 
       var robot = new Robot();
       var gamepad = new Gamepad();
@@ -155,7 +156,7 @@
         $.get('/stop_camera', function(response) {
           console.log(response);
           $("#robot-camera").attr('src', '');
-          $("#robot-camera").attr('src', '/assets/bg.png');
+          $("#robot-camera").attr('src', '/images/bg.png');
         });
       });
 
