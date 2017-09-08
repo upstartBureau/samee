@@ -11,4 +11,6 @@ module.exports = {
 
   streamPort: 8080,
 
+  spacebrewHost: 'sandbox.spacebrew.cc'
+
 };
