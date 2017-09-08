@@ -1,10 +1,18 @@
 
+require('module-alias/register');
+
 ///////////////////// IMPORTS //////////////////////
 
-const http = require('http'),
+const config = require('@config'),
+      http = require('http'),
       url = require('url'),
       { exec } = require('child_process'),
-      camera = require('./camera');
+      camera = require('./camera'),
+      serveStaticFile = require('./static');
+
+////////////////////// CONFIG //////////////////////
+
+const SERVER_PORT = config.serverPort;
 
 //////////////////// FUNCTIONS /////////////////////
 
@@ -21,7 +29,6 @@ function handleRequest(action, response) {
 
 function server(request, response) {
   let urlInfo = url.parse(request.url, true);
-  console.log("Received:", urlInfo.href);
 
   switch(urlInfo.pathname) {
     case '/on':
@@ -35,14 +42,17 @@ function server(request, response) {
       exec('say ' + words);
       serveResponse(response, 200, 'said ' + words);
       break;
+    case '/config':
+      serveResponse(response, 200, JSON.stringify(config));
+      break;
     default:
-      serveResponse(response, 404, 'endpoint does not exist');
+      serveStaticFile(urlInfo.pathname, response);
       break;
   }
 }
 
 /////////////////////// MAIN ///////////////////////
 
-http.createServer(server).listen(8005, () => {
-  console.log("Server listening on port 8005");
+http.createServer(server).listen(SERVER_PORT, () => {
+  console.log(`Server listening on port ${SERVER_PORT}.`);
 });

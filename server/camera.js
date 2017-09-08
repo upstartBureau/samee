@@ -1,22 +1,25 @@
 
 /////////////////// IMPORTS //////////////////////
 
-const SSH = require('simple-ssh'),
+const config = require('@config'),
+      SSH = require('simple-ssh'),
       Promise = require('bluebird');
 
 /////////////////// CONFIG ///////////////////////
 
-const SSH_HOST    = 'arduino.local',
-      SSH_USER    = 'root',
-      SSH_PASS    = 'arduino',
-      STREAM_PORT = '8080';
+const SSH_HOST    = config.sshHost,
+      SSH_USER    = config.sshUser,
+      SSH_PASS    = config.sshPass,
+      SSH_PORT    = config.sshPort,
+      STREAM_PORT = config.streamPort;
 
 //////////////// INITIALIZATION //////////////////
 
 const ssh = new SSH({
   host: SSH_HOST,
   user: SSH_USER,
-  pass: SSH_PASS
+  pass: SSH_PASS,
+  port: SSH_PORT
 });
 
 ssh.on('error', err => console.log("SSH ERROR:", err));
