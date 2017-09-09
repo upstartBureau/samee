@@ -1,5 +1,7 @@
-const int serverPort = 8005;
+const String serverDir = "/Users/jacobmensch/src/samee/server";
 const String clientDir = "/Users/jacobmensch/src/samee/client";
+const String arduinoDir = "/Users/jacobmensch/src/samee/arduino";
+const int serverPort = 8005;
 const String sshHost = "arduino.local";
 const String sshUser = "root";
 const String sshPass = "arduino";

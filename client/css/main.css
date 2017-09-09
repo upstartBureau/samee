@@ -132,7 +132,14 @@ input[type="submit"] {
   padding-left: 45px;
   box-sizing: border-box;
   border: 1px red solid;
+}
 
+#control-panel-div {
+  border: 1px black solid;
+}
+
+#control-panel-select {
+  float: right;
 }
 
 .control-panel:not(:first-of-type) {
@@ -198,6 +205,10 @@ input[type="submit"] {
   position: relative;
   top: 101px;
   left: -133px;
+}
+
+#motor-display {
+  color: black;
 }
 
 .footer {

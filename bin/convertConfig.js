@@ -8,8 +8,8 @@ const config = require('@config'),
 
 //////////////////// CONFIG ////////////////////////
 
-const C_FILE  = __dirname + '/../arduino/yunServer/config.h',
-      JS_FILE = __dirname + '/../client/javascripts/config.js';
+const C_FILE  = config.arduinoDir + '/yunServer/config.h',
+      JS_FILE = config.clientDir + '/js/app/config.js';
 
 /////////////////// FUNCTIONS //////////////////////
 

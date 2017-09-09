@@ -1,8 +1,6 @@
 
 function Robot() {
 
-  console.log(CONFIG);
-
   // PRIVATE VARIABLES
   var new_direction = [0, 0];
   var last_direction = [0, 0];
